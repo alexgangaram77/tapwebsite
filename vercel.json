@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/tap",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tap/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
