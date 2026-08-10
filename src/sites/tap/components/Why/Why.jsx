@@ -1,9 +1,9 @@
 import Card from "../Card/Card";
 import styles from "./Why.module.css";
-import instantImage from "../../assets/why/instant.jpg";
-import noAppImage from "../../assets/why/noapp.jpg";
-import alwaysCurrentImage from "../../assets/why/alwayscurrent.jpg";
-import lessWasteImage from "../../assets/why/lesswaste.jpg";
+import instantImage from "../../../../assets/why/instant.jpg";
+import noAppImage from "../../../../assets/why/noapp.jpg";
+import alwaysCurrentImage from "../../../../assets/why/alwayscurrent.jpg";
+import lessWasteImage from "../../../../assets/why/lesswaste.jpg";
 
 const reasons = [
   {

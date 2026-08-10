@@ -1,23 +1,16 @@
-import Navigation from './components/Navigation/Navigation'
-import Hero from './components/Hero/Hero'
-import About from './components/About/About'
-import Why from './components/Why/Why'
-import Pricing from './components/Pricing/Pricing'
-import FAQ from './components/FAQ/FAQ'
-import Footer from './components/Footer/Footer'
-import styles from './App.module.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import HomeSite from './sites/home/HomeSite'
+import TapSite from './sites/tap/TapSite'
 
 function App() {
   return (
-    <main className={styles.app}>
-      <Navigation />
-      <Hero />
-      <About />
-      <Why />
-      <Pricing />
-      <FAQ />
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeSite />} />
+        <Route path="/tap/*" element={<TapSite />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

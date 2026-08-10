@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion'
-import logo from '../../assets/logo.svg'
+import logo from '../../../../assets/logo.svg'
 import ContactChoice from '../ContactChoice/ContactChoice'
 import styles from './Hero.module.css'
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import logo from '../../assets/logo.svg'
+import logo from '../../../../assets/logo.svg'
 import ContactChoice from '../ContactChoice/ContactChoice'
 import styles from './Navigation.module.css'
 

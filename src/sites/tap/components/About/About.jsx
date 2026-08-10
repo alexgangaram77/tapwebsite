@@ -1,7 +1,7 @@
-import tapImage from "../../assets/about/tap.jpg";
-import openImage from "../../assets/about/open.jpg";
-import connectImage from "../../assets/about/connect.jpg";
-import saveImage from "../../assets/about/save.jpg";
+import tapImage from "../../../../assets/about/tap.jpg";
+import openImage from "../../../../assets/about/open.jpg";
+import connectImage from "../../../../assets/about/connect.jpg";
+import saveImage from "../../../../assets/about/save.jpg";
 import Card from "../Card/Card";
 import styles from "./About.module.css";
 

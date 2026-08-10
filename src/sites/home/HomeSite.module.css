@@ -1,0 +1,125 @@
+.page {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  place-items: center;
+  padding: var(--space-4) var(--space-3);
+  background: var(--background);
+  isolation: isolate;
+}
+
+.glow {
+  position: absolute;
+  bottom: -12rem;
+  left: 50%;
+  width: min(34rem, 92vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(
+    115deg,
+    var(--accent-purple),
+    var(--accent-mint),
+    var(--accent)
+  );
+  filter: blur(var(--space-8));
+  opacity: 0.22;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 42rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  width: var(--space-8);
+  height: var(--space-8);
+  margin-bottom: var(--space-4);
+  object-fit: contain;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.content h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(3.5rem, 18vw, 7rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+}
+
+.description {
+  max-width: 30rem;
+  margin: var(--space-3) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+}
+
+.cta {
+  display: inline-flex;
+  min-height: var(--space-6);
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-inline: var(--space-3);
+  border-radius: 999px;
+  color: var(--background);
+  background: var(--text-primary);
+  font-size: var(--font-size-menu);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.86;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: var(--space-half);
+}
+
+.footer {
+  position: absolute;
+  bottom: var(--space-3);
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+@media (min-width: 48rem) {
+  .page {
+    padding: var(--space-8);
+  }
+
+  .logo {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+}
