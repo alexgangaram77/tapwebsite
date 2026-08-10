@@ -1,0 +1,301 @@
+.navigation {
+  position: fixed;
+  top: var(--space-2);
+  left: max(5%, calc(50% - 14rem));
+  z-index: 10;
+  display: flex;
+  width: 90%;
+  max-width: calc(var(--space-8) * 7);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: var(--space-1);
+  row-gap: 0;
+  padding: var(--space-half);
+  overflow: hidden;
+
+  border-radius: var(--space-4);
+  background: color-mix(in srgb, var(--surface) 38%, transparent);
+  box-shadow:
+    0 var(--space-2) var(--space-6)
+      color-mix(in srgb, var(--text-primary) 9%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--background) 78%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--border) 22%, transparent);
+  backdrop-filter: blur(var(--space-4)) saturate(135%);
+  -webkit-backdrop-filter: blur(var(--space-4)) saturate(135%);
+  transform: none;
+  transition:
+    width 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    column-gap 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 500ms ease;
+}
+
+.hidden {
+  width: calc(var(--space-6) + var(--space-1));
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  column-gap: 0;
+  border-radius: 50%;
+  transform: none;
+}
+
+.open {
+  padding: var(--space-half) var(--space-1) var(--space-1);
+  border-radius: var(--space-4);
+}
+
+.logoLink {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: var(--space-6);
+  height: var(--space-6);
+  flex: 0 0 auto;
+  align-self: center;
+  margin-right: 0;
+  place-items: center;
+  border-radius: 50%;
+  transition: background-color 180ms ease;
+}
+
+.menuButton {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: var(--space-6);
+  height: var(--space-6);
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: auto;
+  padding: 0;
+  place-content: center;
+  gap: var(--space-1);
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  opacity: 1;
+  transition:
+    width 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    margin 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 240ms ease,
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 180ms ease;
+}
+
+.menuButton span {
+  width: var(--space-2);
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 220ms ease;
+}
+
+.open .menuButton span:first-child {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.open .menuButton span:last-child {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.hidden .menuButton {
+  width: 0;
+  margin-left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(calc(var(--space-2) * -1)) scale(0.8);
+}
+
+.hidden .logoLink {
+  margin: 0;
+}
+
+.hidden .links {
+  display: none;
+}
+
+.logo {
+  display: block;
+  width: var(--space-4);
+  height: var(--space-4);
+  object-fit: contain;
+}
+
+.links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 0;
+  flex-basis: 100%;
+  align-items: center;
+  gap: 0;
+  padding-inline: var(--space-half);
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(calc(var(--space-1) * -1)) scale(0.98);
+  transform-origin: top center;
+  will-change: max-height, opacity, filter, transform;
+  transition:
+    max-height 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 550ms;
+}
+
+.open .links {
+  max-height: calc(var(--space-6) * 6);
+  visibility: visible;
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+.links a {
+  width: 100%;
+  flex: 1;
+  padding: var(--space-2);
+  border-radius: var(--space-1);
+  color: var(--text-primary);
+  font-size: var(--font-size-menu);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.logoLink:hover {
+  background: color-mix(in srgb, var(--border) 45%, transparent);
+}
+
+.menuButton:hover {
+  background: transparent;
+}
+
+.links a:hover {
+  color: var(--text-secondary);
+}
+
+.links .cta {
+  padding-block: var(--space-1);
+  border-radius: 999px;
+  color: var(--background);
+  background: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.links .cta:hover {
+  color: var(--background);
+  background: var(--text-secondary);
+}
+
+.links a:focus-visible,
+.logoLink:focus-visible,
+.menuButton:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: -2px;
+}
+
+@media (min-width: 40rem) {
+  .navigation {
+    top: var(--space-3);
+    left: 50%;
+    width: 70%;
+    max-width: none;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: var(--space-half) var(--space-2);
+    transform: translateX(-50%);
+    filter: blur(0);
+    will-change: transform, opacity, filter;
+    transition:
+      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hidden {
+    left: 50%;
+    width: 70%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-radius: var(--space-4);
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateX(-50%) translateY(calc(-100% - var(--space-6)))
+      scale(0.98);
+  }
+
+  .logoLink {
+    width: var(--space-6);
+    height: var(--space-6);
+    margin-right: var(--space-1);
+  }
+
+  .logoLink,
+  .hidden .logoLink {
+    margin-right: var(--space-1);
+    margin-left: 0;
+  }
+
+  .logo {
+    width: var(--space-4);
+    height: var(--space-4);
+  }
+
+  .links a {
+    width: auto;
+    flex: none;
+    padding: var(--space-2);
+    font-size: var(--font-size-menu);
+    text-align: center;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .links {
+    width: auto;
+    max-height: none;
+    flex: 0 0 auto;
+    flex-basis: auto;
+    flex-direction: row;
+    padding-inline: 0;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .hidden .links {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation,
+  .links a,
+  .logoLink,
+  .menuButton,
+  .menuButton span,
+  .links {
+    transition: none;
+  }
+}

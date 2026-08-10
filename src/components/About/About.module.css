@@ -1,0 +1,113 @@
+.about {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--space-8) * 2);
+  background: var(--surface);
+}
+
+.heading {
+  max-width: 56rem;
+  margin: 0 var(--space-3) var(--space-6);
+  text-align: left;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-1);
+  color: var(--text-secondary);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.035em;
+  line-height: var(--line-height-tight);
+}
+
+.scroller {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 5vw;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  gap: var(--space-2);
+  padding-inline: 5vw;
+}
+
+.endSpace {
+  width: calc(5vw - var(--space-2));
+  flex: 0 0 auto;
+}
+
+.hint {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  margin: var(--space-3) auto 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-caption);
+}
+
+.hint i {
+  font-size: var(--font-size-body);
+  font-style: normal;
+}
+
+@media (min-width: 48rem) {
+  .about {
+    padding-block: calc(var(--space-8) * 2.5);
+  }
+
+  .heading {
+    margin-inline: 8vw;
+    margin-bottom: var(--space-8);
+  }
+
+  .heading h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  }
+
+  .track {
+    width: 90%;
+    max-width: 96rem;
+    gap: var(--space-3);
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .scroller {
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .desktopCard {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .endSpace,
+  .hint {
+    display: none;
+  }
+}

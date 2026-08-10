@@ -1,0 +1,113 @@
+.footer {
+  padding: var(--space-8) 5vw var(--space-4);
+  color: var(--background);
+  background: var(--text-primary);
+}
+
+.inner {
+  display: grid;
+  max-width: 90rem;
+  gap: var(--space-6);
+  margin-inline: auto;
+}
+
+.brand a {
+  display: inline-flex;
+  border-radius: var(--space-1);
+}
+
+.brand img {
+  display: block;
+  width: var(--space-6);
+  height: var(--space-6);
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.brand p {
+  max-width: 16rem;
+  margin: var(--space-3) 0 0;
+  color: color-mix(in srgb, var(--background) 58%, transparent);
+  font-size: var(--font-size-menu);
+  line-height: var(--line-height-normal);
+}
+
+.column h2 {
+  margin: 0 0 var(--space-2);
+  color: color-mix(in srgb, var(--background) 48%, transparent);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.column nav,
+.socials,
+.column address {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.column address {
+  color: var(--background);
+  font-size: var(--font-size-menu);
+  font-style: normal;
+  line-height: var(--line-height-normal);
+}
+
+.footer a {
+  width: fit-content;
+  color: var(--background);
+  font-size: var(--font-size-menu);
+  line-height: var(--line-height-normal);
+  text-decoration: none;
+  transition: opacity 180ms ease;
+}
+
+.footer a:hover {
+  opacity: 0.58;
+}
+
+.footer a:focus-visible {
+  border-radius: var(--space-half);
+  outline: 2px solid var(--background);
+  outline-offset: var(--space-half);
+}
+
+.bottom {
+  display: flex;
+  max-width: 90rem;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-8) auto 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid color-mix(in srgb, var(--background) 14%, transparent);
+}
+
+.bottom p {
+  margin: 0;
+  color: color-mix(in srgb, var(--background) 46%, transparent);
+  font-size: var(--font-size-caption);
+}
+
+@media (min-width: 48rem) {
+  .footer {
+    padding-top: calc(var(--space-8) * 1.5);
+  }
+
+  .inner {
+    grid-template-columns: minmax(16rem, 2fr) repeat(3, minmax(8rem, 1fr));
+    gap: var(--space-8);
+  }
+
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer a {
+    transition: none;
+  }
+}

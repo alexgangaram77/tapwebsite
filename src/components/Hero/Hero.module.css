@@ -1,0 +1,253 @@
+.hero {
+  position: relative;
+  min-height: 180svh;
+}
+
+.stickyScene {
+  position: sticky;
+  top: 0;
+  display: grid;
+  min-height: 100svh;
+  align-content: center;
+  gap: var(--space-6);
+  overflow: hidden;
+  padding: calc(var(--space-8) * 2) var(--space-3) var(--space-6);
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  max-width: 38rem;
+  text-align: center;
+}
+
+.copy h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(2.75rem, 13vw, 5rem);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.copy h1 span {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    var(--text-primary),
+    var(--text-secondary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.intro {
+  max-width: 32rem;
+  margin: var(--space-3) auto 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.actions a {
+  display: inline-flex;
+  min-height: var(--space-6);
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-3);
+  border-radius: 999px;
+  font-size: var(--font-size-menu);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.actions a:hover {
+  transform: translateY(-2px);
+}
+
+.primaryAction {
+  color: var(--text-primary);
+  background: var(--accent);
+}
+
+.secondaryAction {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.visual {
+  position: relative;
+  display: grid;
+  min-height: 19rem;
+  place-items: center;
+  perspective: 1200px;
+}
+
+.visual::before {
+  position: absolute;
+  width: min(88vw, 28rem);
+  height: 15rem;
+  border-radius: 42%;
+  background: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--accent-purple) 88%, transparent),
+    color-mix(in srgb, var(--accent-mint) 80%, transparent) 54%,
+    color-mix(in srgb, var(--accent) 82%, transparent)
+  );
+  content: "";
+  filter: blur(var(--space-4)) saturate(125%);
+  opacity: 0.6;
+  transform: translateY(var(--space-1)) scale(0.94);
+}
+
+.visual::after {
+  position: absolute;
+  width: min(72vw, 22rem);
+  height: var(--space-8);
+  border-radius: 50%;
+  background: var(--accent-purple);
+  content: "";
+  filter: blur(var(--space-6));
+  opacity: 0.24;
+  transform: translate(-18%, 130%);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(82vw, 22rem);
+  aspect-ratio: 1.58;
+  place-items: center;
+  overflow: hidden;
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--background) 28%, transparent);
+  border-radius: var(--space-4);
+  color: var(--text-primary);
+  background: var(--background);
+  box-shadow:
+    -24px 30px 64px color-mix(in srgb, var(--accent-purple) 20%, transparent),
+    24px 30px 64px color-mix(in srgb, var(--accent-mint) 20%, transparent),
+    0 var(--space-3) var(--space-6)
+      color-mix(in srgb, var(--text-primary) 10%, transparent),
+    inset 0 0 0 1px var(--border);
+  transform-style: preserve-3d;
+}
+
+.cardLogo {
+  display: block;
+  width: 38%;
+  height: 38%;
+  object-fit: contain;
+}
+
+.nfcIcon {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: var(--space-4);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.tapTarget {
+  position: absolute;
+  z-index: 0;
+  display: grid;
+  width: 17rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent-mint) 30%, transparent);
+  border-radius: 50%;
+}
+
+.tapTarget span {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--accent-purple) 28%, transparent);
+  border-radius: 50%;
+}
+
+.tapTarget span:nth-child(2) {
+  width: 44%;
+  border-color: color-mix(in srgb, var(--accent-mint) 34%, transparent);
+}
+
+.tapTarget span:nth-child(3) {
+  width: 18%;
+  border-color: color-mix(in srgb, var(--accent) 38%, transparent);
+  background: var(--accent-light);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+  font-size: var(--font-size-caption);
+  transform: translateX(-50%);
+}
+
+.scrollCue i {
+  width: var(--space-4);
+  height: 1px;
+  background: var(--border);
+}
+
+@media (min-width: 48rem) {
+  .stickyScene {
+    grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
+    align-items: center;
+    gap: var(--space-8);
+    padding: calc(var(--space-8) * 2) 8vw var(--space-8);
+  }
+
+  .copy {
+    text-align: left;
+  }
+
+  .copy h1 {
+    font-size: clamp(4rem, 6.5vw, 6.75rem);
+  }
+
+  .intro {
+    margin-left: 0;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .visual {
+    min-height: 34rem;
+  }
+
+  .card {
+    width: min(36vw, 32rem);
+    padding: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .actions a {
+    transition: none;
+  }
+}

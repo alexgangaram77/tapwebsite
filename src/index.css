@@ -1,0 +1,63 @@
+:root {
+  --background: #ffffff;
+  --surface: #fafafa;
+  --text-primary: #111111;
+  --text-secondary: #6b7280;
+  --border: #e5e7eb;
+  --accent: #22c55e;
+  --accent-light: #dcfce7;
+  --accent-mint: #34d399;
+  --accent-purple: #a855f7;
+  --danger: #ef4444;
+
+  --text-content-width: 90vw;
+
+  --space-half: 4px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  --font-size-caption: 12px;
+  --font-size-menu: 14px;
+  --font-size-body: 16px;
+  --font-size-subheading: 20px;
+  --font-size-heading: 24px;
+  --font-size-display: 32px;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, li, blockquote) {
+  max-width: var(--text-content-width);
+  overflow-wrap: break-word;
+}
